@@ -35,7 +35,8 @@ android {
 }
 
 dependencies {
-
+    implementation ("com.google.zxing:core:3.4.1")
+    implementation ("org.mindrot:jbcrypt:0.4")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)

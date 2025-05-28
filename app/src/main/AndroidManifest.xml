@@ -13,20 +13,21 @@
         android:theme="@style/Theme.MaxStorage"
         tools:targetApi="31">
         <activity
-            android:name=".menu"
+            android:name=".Menu.menu"
             android:exported="false" />
         <activity
-            android:name=".almacen_paquetes"
+            android:name=".Almacen.almacen_paquetes"
             android:exported="false" />
         <activity
-            android:name=".registro"
+            android:name=".Login.registro"
             android:exported="false" />
         <activity
-            android:name=".PaquetesActivity"
+            android:name=".Paquetes.PaquetesActivity_Accion"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Login.Login"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
