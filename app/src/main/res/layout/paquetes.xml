@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".PaquetesActivity">
+
+    <!-- Contenedor con desplazamiento -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Título -->
+            <TextView
+                android:id="@+id/textTituloEntrada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/primatyColor"
+                android:gravity="center"
+                android:text="Entrada nuevo paquete"
+                android:textColor="@color/white"
+                android:textSize="30dp"
+                android:padding="8dp" />
+
+            <!-- Registrado por -->
+            <TextView
+                android:id="@+id/textRegistradoPor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Registrado por:"
+                android:textColor="@color/black"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textSize="30dp" />
+            <EditText
+                android:id="@+id/etRegistradoPor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/Fondo"
+                android:padding="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/black" />
+
+            <!-- ID -->
+            <TextView
+                android:id="@+id/textiD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ID:"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/black"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textSize="30dp" />
+            <EditText
+                android:id="@+id/etId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/Fondo"
+                android:padding="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/black" />
+
+            <!-- Peso -->
+            <TextView
+                android:id="@+id/textPeso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Peso:"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/black"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textSize="30dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="12dp">
+
+                <EditText
+                    android:id="@+id/etPeso"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/Fondo"
+                    android:padding="16dp"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/black" />
+                <TextView
+                    android:id="@+id/tvPesoUnidades"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/SecondaryColor"
+                    android:gravity="center"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:text="Kg"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- Empresa -->
+            <TextView
+                android:id="@+id/textEmpresa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Empresa procedente:"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/black"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textSize="30dp" />
+            <EditText
+                android:id="@+id/etEmpresa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/Fondo"
+                android:padding="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/black" />
+
+            <!-- Entrada y Salida -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/textEntrada"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/primatyColor"
+                    android:gravity="center"
+                    android:text="Entrada"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_marginEnd="8dp"
+                    android:padding="8dp" />
+                <TextView
+                    android:id="@+id/textSalida"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/primatyColor"
+                    android:gravity="center"
+                    android:text="Salida"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:padding="8dp" />
+            </LinearLayout>
+
+            <!-- Campos de fecha de Entrada y Salida -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <EditText
+                    android:id="@+id/etFechaEntrada"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="dd/MM/yyyy"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:background="@color/Fondo"
+                    android:padding="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center"
+                    android:textColor="@color/black" />
+                <EditText
+                    android:id="@+id/etFechaSalida"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="dd/MM/yyyy"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:background="@color/Fondo"
+                    android:padding="12dp"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textQr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/primatyColor"
+                android:gravity="center"
+                android:text="Código QR"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="0dp"
+                android:textColor="@color/white"
+                android:textSize="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+
+                android:padding="8dp" />
+            <FrameLayout
+                android:id="@+id/qrContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/Fondo"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/imgQr"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Código QR" />
+
+
+
+            </FrameLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="16dp">
+
+                <Button
+                    android:id="@+id/btnGenerarQr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/SecondaryColor"
+                    android:text="Generar QR"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:layout_marginEnd="16dp" />
+
+                <Button
+                    android:id="@+id/btnImprimir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/primatyColor"
+                    android:text="Imprimir" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnGuardarDatos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/primatyColor"
+                android:layout_gravity="center_horizontal"
+                android:text="Guardar Datos" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
