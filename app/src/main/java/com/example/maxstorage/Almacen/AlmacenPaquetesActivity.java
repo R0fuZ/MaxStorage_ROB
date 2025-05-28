@@ -1,10 +1,14 @@
 package com.example.maxstorage.Almacen;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.SearchView;
 import android.widget.TextView;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.SearchView.SearchAutoComplete;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -16,7 +20,7 @@ import com.example.maxstorage.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class almacen_paquetes extends AppCompatActivity {
+public class AlmacenPaquetesActivity extends AppCompatActivity {
 
     private SearchView      searchView;
     private RecyclerView    rvPaquetes;
@@ -43,10 +47,17 @@ public class almacen_paquetes extends AppCompatActivity {
         rvPaquetes   = findViewById(R.id.rvPaquetes);
         areaDetalles = findViewById(R.id.areaDetalles);
 
+        // 1.a) Personaliza el SearchView para usar texto negro
+        @SuppressLint("RestrictedApi")
+        SearchAutoComplete searchText =
+                searchView.findViewById(androidx.appcompat.R.id.search_src_text);
+        searchText.setTextColor(Color.BLACK);
+        searchText.setHintTextColor(Color.BLACK);
+
         // 2) Carga datos desde la BD
-        dao = new AlmacenDAO(this);
-        originalList = dao.getAll();
-        filteredList = new ArrayList<>(originalList);
+        dao           = new AlmacenDAO(this);
+        originalList  = dao.getAll();
+        filteredList  = new ArrayList<>(originalList);
 
         // 3) Configura RecyclerView y Adapter
         adapter = new AlmacenAdapter(filteredList, this::showDetails);
@@ -55,17 +66,15 @@ public class almacen_paquetes extends AppCompatActivity {
 
         // 4) Busca por ID al escribir en SearchView
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) { return false; }
-            @Override
-            public boolean onQueryTextChange(String newText) {
+            @Override public boolean onQueryTextSubmit(String query)  { return false; }
+            @Override public boolean onQueryTextChange(String newText) {
                 filterById(newText.trim());
                 return true;
             }
         });
     }
 
-    /** Filtra la lista por paquete_id que contenga el texto */
+    /** Filtra la lista por package_id que contenga el texto */
     private void filterById(String text) {
         filteredList.clear();
         if (text.isEmpty()) {
@@ -78,19 +87,19 @@ public class almacen_paquetes extends AppCompatActivity {
             }
         }
         adapter.notifyDataSetChanged();
-        areaDetalles.setText(""); // limpia detalles al filtrar
+        areaDetalles.setText("");
     }
 
     /** Muestra en el TextView los detalles del paquete seleccionado */
     private void showDetails(Almacen a) {
         String details = ""
-                + "ID: "        + a.getPackageId()              + "\n"
-                + "Peso: "      + a.getWeight()                 + " kg\n"
-                + "Registrado por: " + a.getRegisteredBy()       + "\n"
-                + "Entrada: "   + a.getArrivalDate()            + "\n"
-                + "Salida: "    + a.getEstimatedDepartureDate() + "\n"
-                + "QR: "        + a.getQrCode()                 + "\n"
-                + "Estado: "    + a.getStatus();
+                + "ID: "             + a.getPackageId()               + "\n"
+                + "Peso: "           + a.getWeight()                  + " kg\n"
+                + "Registrado por: " + a.getRegisteredBy()           + "\n"
+                + "Entrada: "        + a.getArrivalDate()            + "\n"
+                + "Salida: "         + a.getEstimatedDepartureDate() + "\n"
+                + "QR: "             + a.getQrCode()                 + "\n"
+                + "Estado: "         + a.getStatus();
         areaDetalles.setText(details);
     }
 }

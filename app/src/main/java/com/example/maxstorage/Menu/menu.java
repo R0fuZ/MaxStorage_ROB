@@ -11,7 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.maxstorage.Almacen.almacen_paquetes;
+import com.example.maxstorage.Almacen.AlmacenPaquetesActivity;
 import com.example.maxstorage.Login.Login;
 import com.example.maxstorage.Paquetes.PaquetesActivity_Accion;
 import com.example.maxstorage.R;
@@ -24,32 +24,30 @@ public class menu extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_menu);
 
-        // Ajuste de inset para Edge-to-Edge
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            Insets sys = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(sys.left, sys.top, sys.right, sys.bottom);
             return insets;
         });
 
-        // Botón Registrar Paquete
-        Button btnRegistrar = findViewById(R.id.btnMenuAlmacenPaquetes);
-        btnRegistrar.setOnClickListener(v -> {
-            Intent i = new Intent(menu.this, almacen_paquetes.class);
-            startActivity(i);
+        // -- Corrige aquí las referencias y los Intents --
+
+        // 1) Botón "Registrar Paquete" (pantalla de alta de paquetes)
+        Button btnRegistrarPaquete = findViewById(R.id.btnMenuRegistrarPaquete);
+        btnRegistrarPaquete.setOnClickListener(v -> {
+            startActivity(new Intent(this, PaquetesActivity_Accion.class));
         });
 
-        // Botón Almacén de Paquetes
-        Button btnAlmacen = findViewById(R.id.btnMenuRegistrarPaquete);
-        btnAlmacen.setOnClickListener(v -> {
-            Intent i = new Intent(menu.this, PaquetesActivity_Accion.class);
-            startActivity(i);
+        // 2) Botón "Almacén de Paquetes" (pantalla de consulta/almacén)
+        Button btnAlmacenPaquetes = findViewById(R.id.btnMenuAlmacenPaquetes);
+        btnAlmacenPaquetes.setOnClickListener(v -> {
+            startActivity(new Intent(this, AlmacenPaquetesActivity.class));
         });
 
-        // Texto Cerrar sesión
+        // 3) Cerrar sesión
         TextView tvCerrar = findViewById(R.id.tvCerrarSesion);
         tvCerrar.setOnClickListener(v -> {
-            // Aquí cierras sesión, por ejemplo volviendo al login:
-            Intent i = new Intent(menu.this, Login.class);
+            Intent i = new Intent(this, Login.class);
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(i);
             finish();
