@@ -81,6 +81,16 @@
 
         </ScrollView>
 
+        <Button
+            android:id="@+id/btnBorrarPaquete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Borrar paquete"
+            android:textAllCaps="false"
+            android:background="@color/primatyColor"
+            android:textColor="@color/white"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

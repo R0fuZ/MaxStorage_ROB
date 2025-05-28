@@ -16,7 +16,7 @@
             android:name=".Menu.menu"
             android:exported="false" />
         <activity
-            android:name=".Almacen.almacen_paquetes"
+            android:name=".Almacen.AlmacenPaquetesActivity"
             android:exported="false" />
         <activity
             android:name=".Login.registro"
